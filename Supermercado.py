@@ -24,28 +24,37 @@ while bloqueo_puerta == False and jornada == True and cpuerta >= 0:
     aire = True
     luz = True
     print(f"Personas en el super: {cpuerta}")
+    print(f"Luz en estado: {luz}")
+    print(f"Aire acondicionado en estado: {aire}")
+    print(f"bloqueo de puerta: {bloqueo_puerta}")
     try:
         op = int(input("¿Desea entrar o salir? \n 1. Salir \n 2. Entrar \n"))
         
         if op == 2:
             cpuerta += 1
-            print(f"Personas en el super: {cpuerta}")
         elif op == 1:
             cpuerta -= 1
-            print(f"Personas en el super: {cpuerta}")
         else:
             print("Ingrese una opcion valida")
         
         if cpuerta == 0:
-            op1 = int(input("¿Salir y Finalizar turno? \n 1. Si \n 2. No \n"))
-        
-        if op1 == 1:
-            jornada = False
-        elif op1 == 2:
-            cpuerta += 1
-        else:
-            print("INGRESE UNA OPCION VALIDA!!!!!!!!!")
+            op1 = int(input("No es posible dejar el supermercado solo, eche pa' entro a no ser... que desee finalizar turno: \n 1. Finalizar turno. \n 2. Seguir chambeando \n"))
+                
+            if op1 == 2:
+                cpuerta += 1
+                
+            elif op1 == 1:
+                aire = False
+                luz = False
+                bloqueo_puerta = True
+                
+            else:
+                print("INGRESE UNA OPCION VALIDA!!!!!!!!!")
     except:
         print("INGRESE UNA OPCION VALIDA!!!!!!!!!")
 
 print("MIMIR TIME! 😴")
+print(f"Personas en el super: {cpuerta}")
+print(f"Luz en estado: {luz}")
+print(f"Aire acondicionado en estado: {aire}")
+print(f"bloqueo de puerta: {bloqueo_puerta}")
